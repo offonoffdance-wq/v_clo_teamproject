@@ -8,12 +8,12 @@ export default function Home() {
 
     // 배너 이미지 경로 배열
     const banners = [
-        "./images/banner1.jpg",
-        "./images/banner2.jpg",
-        "./images/banner3.jpg",
-        "./images/banner4.jpg",
-        "./images/banner5.jpg",
-        "./images/banner6.jpg"
+        import.meta.env.BASE_URL + "images/banner1.jpg",
+        import.meta.env.BASE_URL + "images/banner2.jpg",
+        import.meta.env.BASE_URL + "images/banner3.jpg",
+        import.meta.env.BASE_URL + "images/banner4.jpg",
+        import.meta.env.BASE_URL + "images/banner5.jpg",
+        import.meta.env.BASE_URL + "images/banner6.jpg"
     ];
 
     // require 대신 선언된 useState 사용
@@ -50,16 +50,16 @@ export default function Home() {
                     {/* public 폴더 내 이미지는 /images/... 로 바로 접근 가능합니다 */}
                     <img src={banners[currentIndex]} alt="banner" width="1920" height="600" />
                 </div>
-                
+
                 <button className="arrow left" onClick={prevSlide}>&#10094;</button>
                 <button className="arrow right" onClick={nextSlide}>&#10095;</button>
             </div>
 
             <ul className="productUl">
-                {shuffledProducts.map(({id, img, model, color, category, title, price}) => (
+                {shuffledProducts.map(({ id, img, model, color, category, title, price }) => (
                     <li key={id}>
                         <NavLink to={'/productDetail?id=' + id}>
-                            <img src={img} alt={title} className="thumbnail"/><br />
+                            <img src={import.meta.env.BASE_URL + img} alt={title} className="thumbnail" /><br />
                             <span className="price-span">{price.toLocaleString()}</span><br />
                             <span className="model-span">model</span>{model}<br />
                             {title}<br />

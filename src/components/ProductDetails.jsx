@@ -78,7 +78,7 @@ export default function ProductDetails({ isLogin, onLogout, handleAddToCart }) {
         id: `${id}-${item.size}`,
         title: currentItem?.title,
         price: item.price,
-        img: currentItem?.img,
+        img: import.meta.env.BASE_URL + currentItem?.img,
         option: item.optionName,
         size: item.size,
         count: item.count
@@ -173,7 +173,7 @@ export default function ProductDetails({ isLogin, onLogout, handleAddToCart }) {
                     {currentItem.size?.map(size => (
                       <button key={size} className="btn-size"
                         onClick={() => selectSize(size)}>
-                        <img src="/images/deliveryMan.jpg" className="icon-delivery" alt="delivery" />
+                        <img src={import.meta.env.BASE_URL + "images/deliveryMan.jpg"} className="icon-delivery" alt="delivery" />
                         {size} [즉시출고]
                       </button>
                     ))}
